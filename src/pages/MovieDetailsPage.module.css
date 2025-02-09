@@ -1,0 +1,62 @@
+.detailsContainer {
+  width: 96%;
+  padding: 16px;
+  min-width: 280px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 18px;
+  color: rgb(52, 52, 52);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.btn {
+  background-color: rgb(0, 0, 0);
+  padding: 8px 16px;
+  color: aliceblue;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  width: 100%;
+}
+
+.btn:hover {
+  background-color: rgb(73, 73, 73);
+}
+
+.imgAndDescContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  justify-content: flex-start;
+}
+
+.movieTitle {
+  font-size: 42px;
+  line-height: 1.15;
+}
+
+.moviePoster {
+  width: 320px;
+  border-radius: 8px;
+}
+
+.movieDesc {
+  font-size: 18px;
+}
+
+@media screen and (min-width: 360px) {
+  .detailsContainer {
+    width: 80%;
+    padding: 24px;
+    border-radius: 24px;
+  }
+}
+
+@media screen and (min-width: 514px) {
+  .btn {
+    width: fit-content;
+  }
+}
