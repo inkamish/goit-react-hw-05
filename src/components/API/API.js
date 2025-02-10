@@ -3,12 +3,12 @@ import axios from "axios";
 const API_KEY = "4e090bc10d39a7cd423941a9fddf4f4a";
 const BASE_URL = "https://api.themoviedb.org/3";
 
-// Загальна функція для запитів
 const fetchData = async (endpoint, params = {}) => {
   try {
     const response = await axios.get(`${BASE_URL}${endpoint}`, {
       params: {
         api_key: API_KEY,
+        language: "en-US",
         ...params,
       },
     });

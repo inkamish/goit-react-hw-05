@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
 import styles from "./HomePage.module.css";
+import MovieList from "../components/MovieList/MovieList";
 
 const HomePage = () => {
   const [movies, setMovies] = useState([]);
@@ -24,24 +24,7 @@ const HomePage = () => {
   return (
     <div>
       <h1 className={styles.listTitle}>Trending now</h1>
-      <ul className={styles.list}>
-        {movies.length > 0 ? (
-          movies.map(({ id, poster_path, original_title }) => (
-            <li className={styles.listItem} key={id}>
-              <NavLink to={`/movies/${id}`} className="movie-link">
-                <img
-                  src={`https://image.tmdb.org/t/p/w500${poster_path}`}
-                  alt={original_title}
-                  className={styles.moviePoster}
-                />
-                <h2>{original_title}</h2>
-              </NavLink>
-            </li>
-          ))
-        ) : (
-          <p>Loading movies...</p>
-        )}
-      </ul>
+      <MovieList movies={movies} />
     </div>
   );
 };

@@ -1,0 +1,32 @@
+.castList,
+.noPhotoList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.castItem,
+.noPhotoItem {
+  flex-basis: calc((100% - (12px * 8)) / 8);
+}
+
+.actorImage {
+  border-radius: 6px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.actorName {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.showMoreBtn {
+  border: none;
+  width: fit-content;
+  background-color: transparent;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.showMoreBtn:hover {
+  color: rgb(78, 3, 208);
+}

@@ -1,10 +1,11 @@
 .searchContainer {
+  min-width: 280px;
   display: flex;
   flex-direction: column;
   gap: 12px;
   color: rgb(52, 52, 52);
   padding: 16px;
-  min-width: 280px;
+
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   background-color: rgb(255, 255, 255);
   border-radius: 18px;
@@ -19,11 +20,13 @@
   color: rgb(52, 52, 52);
   min-width: 280px;
   width: 100%;
+  transition: outline, 50ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .input:hover,
 .input:focus {
-  border: 1.5px solid black;
+  border-color: transparent;
+  outline: 1.7px solid rgb(78, 3, 208);
 }
 
 .btn {
