@@ -45,6 +45,7 @@ const MovieReviews = () => {
               key={review.id}
               author={review.author}
               content={review.content}
+              author_details={review.author_details}
             />
           ))}
         </ul>
