@@ -6,7 +6,9 @@ import NotFoundPage from "../pages/NotFoundPage";
 import clsx from "clsx";
 
 const MoviesPage = lazy(() => import("../pages/MoviesPage"));
-const MovieDetailsPage = lazy(() => import("../pages/MovieDetailsPage"));
+const MovieDetailsPage = lazy(() =>
+  import("../pages/MovieDetailsPage/MovieDetailsPage")
+);
 const MovieCast = lazy(() => import("./MovieCast/MovieCast"));
 const MovieReviews = lazy(() => import("./MovieReviews/MovieReviews"));
 

@@ -8,7 +8,7 @@ import {
 import clsx from "clsx";
 import styles from "./MovieDetailsPage.module.css";
 import { useEffect, useState } from "react";
-import { getMovieById } from "../components/API/API";
+import { getMovieById } from "../../components/API/API";
 
 const buildLink = ({ isActive }) =>
   clsx(styles.link, isActive && styles.active);
