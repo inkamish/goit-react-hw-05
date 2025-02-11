@@ -47,8 +47,8 @@
 
 @media screen and (min-width: 360px) {
   .detailsContainer {
-    width: 80%;
-    padding: 24px;
+    width: 96%;
+
     border-radius: 24px;
   }
 }
@@ -56,5 +56,10 @@
 @media screen and (min-width: 576px) {
   .btn {
     width: fit-content;
+  }
+
+  .detailsContainer {
+    width: 80%;
+    padding: 24px;
   }
 }
