@@ -1,4 +1,10 @@
-import { NavLink, Outlet, useNavigate, useParams } from "react-router-dom";
+import {
+  NavLink,
+  Outlet,
+  useParams,
+  useLocation,
+  Link,
+} from "react-router-dom";
 import clsx from "clsx";
 import styles from "./MovieDetailsPage.module.css";
 import { useEffect, useState } from "react";
@@ -9,7 +15,7 @@ const buildLink = ({ isActive }) =>
 
 const MovieDetailsPage = () => {
   const { movieId } = useParams();
-  const navigate = useNavigate();
+  const location = useLocation();
   const [movieDetails, setMovieDetails] = useState(null);
 
   useEffect(() => {
@@ -30,11 +36,14 @@ const MovieDetailsPage = () => {
   const { poster_path, title, overview, genres, vote_average, release_date } =
     movieDetails;
 
+  const backLinkHref = location.state?.from ?? "/movies";
+
   return (
     <div className={styles.detailsContainer}>
-      <button className={styles.btn} onClick={() => navigate(-1)}>
+      <Link to={backLinkHref} className={styles.btn}>
         Go Back
-      </button>
+      </Link>
+
       <div className={styles.imgAndDescContainer}>
         <img
           src={`https://image.tmdb.org/t/p/w500${poster_path}`}
@@ -61,10 +70,18 @@ const MovieDetailsPage = () => {
       <div>
         <h4>Additional Information :</h4>
         <nav className={styles.nav}>
-          <NavLink to="cast" className={buildLink}>
+          <NavLink
+            to="cast"
+            className={buildLink}
+            state={{ from: backLinkHref }}
+          >
             Cast
           </NavLink>
-          <NavLink to="reviews" className={buildLink}>
+          <NavLink
+            to="reviews"
+            className={buildLink}
+            state={{ from: backLinkHref }}
+          >
             Reviews
           </NavLink>
         </nav>

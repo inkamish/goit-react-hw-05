@@ -1,7 +1,8 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import styles from "./MovieList.module.css";
 
 const MovieList = ({ movies, hasSearched }) => {
+  const location = useLocation();
   return (
     <>
       {hasSearched && movies.length === 0 && <p>No movies found</p>}
@@ -9,7 +10,11 @@ const MovieList = ({ movies, hasSearched }) => {
       <ul className={styles.list}>
         {movies.map(({ id, poster_path, title, release_date }) => (
           <li className={styles.listItem} key={id}>
-            <NavLink to={`/movies/${id}`} className="movie-link">
+            <NavLink
+              to={`/movies/${id}`}
+              state={{ from: location }}
+              className="movie-link"
+            >
               {poster_path ? (
                 <img
                   src={`https://image.tmdb.org/t/p/w500${poster_path}`}

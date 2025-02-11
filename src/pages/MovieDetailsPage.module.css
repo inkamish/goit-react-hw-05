@@ -29,7 +29,7 @@
 
 .imgAndDescContainer {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   gap: 32px;
   justify-content: flex-start;
 }
@@ -41,14 +41,15 @@
 }
 
 .movieTitle {
-  font-size: 42px;
+  font-size: 36px;
   line-height: 1.15;
 }
 
 .moviePoster {
-  width: 320px;
+  min-width: 240px;
   border-radius: 8px;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  height: fit-content;
 }
 
 .movieDesc {
@@ -94,8 +95,30 @@
   }
 }
 
-@media screen and (min-width: 514px) {
+@media screen and (min-width: 576px) {
   .btn {
     width: fit-content;
+  }
+
+  .movieTitle {
+    font-size: 42px;
+  }
+
+  .moviePoster {
+    max-width: 412px;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .imgAndDescContainer {
+    flex-direction: row;
+  }
+
+  .movieTitle {
+    font-size: 42px;
+  }
+
+  .moviePoster {
+    max-width: 320px;
   }
 }

@@ -7,7 +7,7 @@
 
 .castItem,
 .noPhotoItem {
-  flex-basis: calc((100% - (12px * 8)) / 8);
+  flex-basis: calc((100% - 12px) / 2);
 }
 
 .actorImage {
@@ -29,4 +29,18 @@
 
 .showMoreBtn:hover {
   color: rgb(78, 3, 208);
+}
+
+@media screen and (min-width: 576px) {
+  .castItem,
+  .noPhotoItem {
+    flex-basis: calc((100% - (12px * 3)) / 4);
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .castItem,
+  .noPhotoItem {
+    flex-basis: calc((100% - (12px * 7)) / 8);
+  }
 }
