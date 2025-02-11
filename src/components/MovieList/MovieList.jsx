@@ -13,7 +13,7 @@ const MovieList = ({ movies, hasSearched }) => {
             <NavLink
               to={`/movies/${id}`}
               state={{ from: location }}
-              className="movie-link"
+              className={styles.movieLink}
             >
               {poster_path ? (
                 <img
@@ -22,7 +22,7 @@ const MovieList = ({ movies, hasSearched }) => {
                   className={styles.moviePoster}
                 />
               ) : (
-                <div className={styles.placeholder}>No Image</div>
+                <div className={styles.placeholder}>No poster</div>
               )}
               <h2>
                 {title} ({release_date?.slice(0, 4)})
