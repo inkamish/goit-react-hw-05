@@ -1,7 +1,7 @@
 import styles from "./App.module.css";
 import { lazy, Suspense } from "react";
 import { Routes, Route, NavLink } from "react-router-dom";
-import HomePage from "../pages/HomePage";
+import HomePage from "../pages/HomePage/HomePage";
 import NotFoundPage from "../pages/NotFoundPage";
 import clsx from "clsx";
 
