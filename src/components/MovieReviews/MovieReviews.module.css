@@ -4,26 +4,8 @@
   gap: 24px;
 }
 
-.reviewItem {
-  padding: 16px;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  border-radius: 18px;
-  height: fit-content;
-  max-height: 500px;
-  overflow: auto;
-}
-
-.reviewAuthor {
-  font-weight: 500;
-}
 .showMoreBtn {
   border: none;
   width: fit-content;
   background-color: transparent;
-}
-
-@media screen and (min-width: 576px) {
-  .reviewItem {
-    flex-basis: calc((100% - 24px) / 2);
-  }
 }

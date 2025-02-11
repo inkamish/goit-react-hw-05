@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getReviews } from "../API/API";
 import styles from "./MovieReviews.module.css";
+import ReviewItem from "./ReviewItem/ReviewItem";
 
 const MovieReviews = () => {
   const { movieId } = useParams();
@@ -40,12 +41,11 @@ const MovieReviews = () => {
       {visibleReviews.length > 0 && !isLoading && (
         <ul className={styles.reviewList}>
           {visibleReviews.map((review) => (
-            <li className={styles.reviewItem} key={review.id}>
-              <p>
-                <span className={styles.reviewAuthor}>{review.author}</span>:{" "}
-                {review.content}
-              </p>
-            </li>
+            <ReviewItem
+              key={review.id}
+              author={review.author}
+              content={review.content}
+            />
           ))}
         </ul>
       )}

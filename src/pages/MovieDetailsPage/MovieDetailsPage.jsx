@@ -9,6 +9,7 @@ import clsx from "clsx";
 import styles from "./MovieDetailsPage.module.css";
 import { useEffect, useState } from "react";
 import { getMovieById } from "../../components/API/API";
+import MovieCard from "../../components/MovieCard/MovieCard"; // Імпортуємо MovieCard
 
 const buildLink = ({ isActive }) =>
   clsx(styles.link, isActive && styles.active);
@@ -44,29 +45,15 @@ const MovieDetailsPage = () => {
         Go Back
       </Link>
 
-      <div className={styles.imgAndDescContainer}>
-        <img
-          src={`https://image.tmdb.org/t/p/w500${poster_path}`}
-          alt={title}
-          className={styles.moviePoster}
-        />
-        <div className={styles.descContainer}>
-          <h2 className={styles.movieTitle}>
-            {title} ({release_date?.slice(0, 4)})
-          </h2>
-          <p className={styles.movieDesc}>{overview}</p>
-          <h3>Genres</h3>
-          <p>{genres.map((genre) => genre.name).join(", ")}</p>
-          <h4>Rating</h4>
-          <div className={styles.ratingContainer}>
-            <div
-              className={styles.ratingFill}
-              style={{ width: `${vote_average * 10}%` }}
-            ></div>
-          </div>
-          <p>{vote_average}</p>
-        </div>
-      </div>
+      <MovieCard
+        poster_path={poster_path}
+        title={title}
+        overview={overview}
+        genres={genres}
+        vote_average={vote_average}
+        release_date={release_date}
+      />
+
       <div>
         <h4>Additional Information :</h4>
         <nav className={styles.nav}>

@@ -27,48 +27,6 @@
   background-color: rgb(73, 73, 73);
 }
 
-.imgAndDescContainer {
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-  justify-content: flex-start;
-}
-
-.descContainer {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
-.movieTitle {
-  font-size: 36px;
-  line-height: 1.15;
-}
-
-.moviePoster {
-  min-width: 240px;
-  border-radius: 8px;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  height: fit-content;
-}
-
-.movieDesc {
-  font-size: 18px;
-}
-
-.ratingContainer {
-  height: 3px;
-  width: 200px;
-  background-color: red;
-  overflow: hidden;
-  position: relative;
-}
-
-.ratingFill {
-  height: 100%;
-  background-color: green;
-}
-
 .nav {
   display: flex;
   gap: 12px;
@@ -98,27 +56,5 @@
 @media screen and (min-width: 576px) {
   .btn {
     width: fit-content;
-  }
-
-  .movieTitle {
-    font-size: 42px;
-  }
-
-  .moviePoster {
-    max-width: 412px;
-  }
-}
-
-@media screen and (min-width: 992px) {
-  .imgAndDescContainer {
-    flex-direction: row;
-  }
-
-  .movieTitle {
-    font-size: 42px;
-  }
-
-  .moviePoster {
-    max-width: 320px;
   }
 }
