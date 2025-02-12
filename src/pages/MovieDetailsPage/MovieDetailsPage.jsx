@@ -6,10 +6,10 @@ import {
   Link,
 } from "react-router-dom";
 import clsx from "clsx";
+import { useEffect, useState, useRef } from "react";
 import styles from "./MovieDetailsPage.module.css";
-import { useEffect, useState } from "react";
 import { getMovieById } from "../../components/API/API";
-import MovieCard from "../../components/MovieCard/MovieCard"; // Імпортуємо MovieCard
+import MovieCard from "../../components/MovieCard/MovieCard";
 
 const buildLink = ({ isActive }) =>
   clsx(styles.link, isActive && styles.active);
@@ -18,6 +18,8 @@ const MovieDetailsPage = () => {
   const { movieId } = useParams();
   const location = useLocation();
   const [movieDetails, setMovieDetails] = useState(null);
+
+  const backLinkRef = useRef(location.state?.from ?? "/movies");
 
   useEffect(() => {
     const fetchMovieDetails = async () => {
@@ -37,11 +39,9 @@ const MovieDetailsPage = () => {
   const { poster_path, title, overview, genres, vote_average, release_date } =
     movieDetails;
 
-  const backLinkHref = location.state?.from ?? "/movies";
-
   return (
     <div className={styles.detailsContainer}>
-      <Link to={backLinkHref} className={styles.btn}>
+      <Link to={backLinkRef.current} className={styles.btn}>
         Go Back
       </Link>
 
@@ -60,14 +60,14 @@ const MovieDetailsPage = () => {
           <NavLink
             to="cast"
             className={buildLink}
-            state={{ from: backLinkHref }}
+            state={{ from: backLinkRef.current }}
           >
             Cast
           </NavLink>
           <NavLink
             to="reviews"
             className={buildLink}
-            state={{ from: backLinkHref }}
+            state={{ from: backLinkRef.current }}
           >
             Reviews
           </NavLink>
