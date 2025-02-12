@@ -4,6 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import HomePage from "../pages/HomePage/HomePage";
 import NotFoundPage from "../pages/NotFoundPage";
 import Navigation from "./Navigation/Navigation";
+import { PropagateLoader } from "react-spinners";
 
 const MoviesPage = lazy(() => import("../pages/MoviesPage"));
 const MovieDetailsPage = lazy(() =>
@@ -17,7 +18,13 @@ function App() {
     <div className={styles.container}>
       <Navigation />
 
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense
+        fallback={
+          <div className={styles.loaderContainer}>
+            <PropagateLoader />
+          </div>
+        }
+      >
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/movies" element={<MoviesPage />} />

@@ -12,3 +12,10 @@
     padding: 24px 0 82px;
   }
 }
+
+.loaderContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}

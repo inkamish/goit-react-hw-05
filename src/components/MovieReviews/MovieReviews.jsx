@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { getReviews } from "../API/API";
 import styles from "./MovieReviews.module.css";
 import ReviewItem from "./ReviewItem/ReviewItem";
+import { PropagateLoader } from "react-spinners";
 
 const MovieReviews = () => {
   const { movieId } = useParams();
@@ -33,9 +34,16 @@ const MovieReviews = () => {
     setVisibleReviews(reviews);
   };
 
+  if (isLoading) {
+    return (
+      <div className={styles.loaderContainer}>
+        <PropagateLoader />
+      </div>
+    );
+  }
+
   return (
     <div>
-      {isLoading && <p>Loading reviews...</p>}
       {reviews.length === 0 && !isLoading && <p>No reviews available.</p>}
 
       {visibleReviews.length > 0 && !isLoading && (

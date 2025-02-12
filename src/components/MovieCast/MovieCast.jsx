@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getCredits } from "../API/API";
 import styles from "./MovieCast.module.css";
+import { PropagateLoader } from "react-spinners";
 
 const MovieCast = () => {
   const { movieId } = useParams();
@@ -42,15 +43,21 @@ const MovieCast = () => {
     setVisibleActors([...actorsWithPhoto]);
   };
 
+  if (isLoading) {
+    return (
+      <div className={styles.loaderContainer}>
+        <PropagateLoader />
+      </div>
+    );
+  }
+
   return (
     <>
       {actorsWithPhoto.length === 0 &&
         actorsWithoutPhoto.length === 0 &&
         !isLoading && <p>No cast information available.</p>}
 
-      {isLoading && <p>Loading cast information...</p>}
-
-      {visibleActors.length > 0 && !isLoading && (
+      {visibleActors.length > 0 && (
         <ul className={styles.castList}>
           {visibleActors.map(({ id, name, profile_path }) => (
             <li key={id} className={styles.castItem}>

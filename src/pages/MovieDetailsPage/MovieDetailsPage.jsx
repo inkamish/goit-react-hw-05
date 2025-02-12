@@ -10,6 +10,7 @@ import { useEffect, useState, useRef } from "react";
 import styles from "./MovieDetailsPage.module.css";
 import { getMovieById } from "../../components/API/API";
 import MovieCard from "../../components/MovieCard/MovieCard";
+import { PropagateLoader } from "react-spinners";
 
 const buildLink = ({ isActive }) =>
   clsx(styles.link, isActive && styles.active);
@@ -34,7 +35,13 @@ const MovieDetailsPage = () => {
     fetchMovieDetails();
   }, [movieId]);
 
-  if (!movieDetails) return <p>Loading movie details...</p>;
+  if (!movieDetails) {
+    return (
+      <div className={styles.loaderContainer}>
+        <PropagateLoader />
+      </div>
+    );
+  }
 
   const { poster_path, title, overview, genres, vote_average, release_date } =
     movieDetails;
