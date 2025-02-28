@@ -29,7 +29,7 @@ const MovieCard = ({
             style={{ width: `${vote_average * 10}%` }}
           ></div>
         </div>
-        <p>{vote_average}</p>
+        <p>{vote_average.toFixed(1)}</p>
       </div>
     </div>
   );
